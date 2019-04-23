@@ -175,6 +175,8 @@ function removeMenuItem (elem)
 		}
 		catch(e){console.log(e);}
 	}
+
+	active(document.getElementById('menu__ul__1')); // переход после удаления на общий чат
 }
 
 function chatShowing (id) // хайдит и шовит нужный чат
