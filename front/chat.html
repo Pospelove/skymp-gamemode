@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="css/chat.css">
+
+<div class="main">
+
+	<div class="header">
+		<div class="header__time" id='header__time'></div>
+		<div class="header__chatname" id="header__chatname">Общий чат</div>
+	</div>
+
+	<div class="menu">
+		<ul id="menu__ul">
+			<li class="menu__ul__item active" id="menu__ul__1">Чат</li>
+			<li class="menu__ul__item" id="menu__ul__2">RP</li>
+			<li class="menu__ul__item" id="menu__ul__3">NonRP</li>
+			<li class="menu__ul__item" id="menu__ul__4">Торговля</li>
+		</ul>
+	</div>
+
+	<div class="chat">
+		<ul class="chat__ul chat__offli" id="chat__1">
+			<div class="chatline" id="chatline__1">
+			</div>
+		</ul>
+		<ul class="chat__ul chat__offli hide" id="chat__2">
+			<div class="chatline" id="chatline__2">
+			</div>
+		</ul>
+		<ul class="chat__ul chat__offli hide" id="chat__3">
+			<div class="chatline" id="chatline__3">
+			</div>
+		</ul>
+		<ul class="chat__ul chat__offli hide" id="chat__4">
+			<div class="chatline" id="chatline__4">
+			</div>
+		</ul>
+		<form class="chat__sendform" id="chat__sendform" action="#" method="POST">
+			<input type="text">
+			<button type="submit"><div>Отправить</div></button>
+		</form>
+	</div>
+	
+</div>
+
+<script src="js/chat.js"></script>
