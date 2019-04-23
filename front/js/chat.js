@@ -97,10 +97,12 @@ function active (elem) // смена цвета вкладок менюхи и �
 		if (elem.id == 'menu__ul__1') // либо можно по innerText
 		{
 			document.getElementById('chat__sendform').style.display = 'none';
+			document.getElementById('chatline').style.height = '295px';
 		}
 		else
 		{
 			document.getElementById('chat__sendform').style.display = 'flex';
+			document.getElementById('chatline').style.height = '265px';
 		}
 
 
@@ -134,7 +136,7 @@ function addMenuItem (name)
 	menu_ul.appendChild(mdiv);
 
 	chats[mdiv.id] = 'chat__' + num.toString();
-	chat_sendform.insertAdjacentHTML('beforebegin', '<ul class="chat__ul chat__offli hide" id="chat__' + num + '"><div class="chatline" id="chatline__' + num + '"></div></ul>');
+	chat_sendform.insertAdjacentHTML('beforebegin', '<ul class="chat__ul chat__offli hide" id="chat__' + num + '"></ul>');
 	
 	var chat = document.getElementById('chat__' + num);
 	
@@ -182,8 +184,7 @@ function removeMenuItem (elem)
 function chatShowing (id) // хайдит и шовит нужный чат
 {
 	var chat_uls 	= document.getElementsByClassName('chat__ul'),
-		chat 		= document.getElementById('chat__' + id),
-		chatline 	= document.getElementById('chatline__' + id);
+		chat 		= document.getElementById('chat__' + id);
 
 	try
 	{
@@ -198,16 +199,12 @@ function chatShowing (id) // хайдит и шовит нужный чат
 	catch(e){console.log(e);}
 
 	chat.classList.remove('hide');
-
-	chatline.style.height = chat.scrollHeight;
 	chat.scrollTop = chat.scrollHeight - chat.clientHeight; // держит скролл внизу
 }
 
 function addMsg (author, chat_id, msg, time, chat) // наверняка есть более эффективное решение, но покачто в рабочем состоянии
 {
 	var common_chat 	= document.getElementById('chat__1'),
-		common_chatline = document.getElementById('chatline__1'),
-		chatline 		= document.getElementById('chatline__' + chat_id),
 		color;
 
 	//if (msg.length == 0) { return; } // если не над пустых сообщений, то раскомент
@@ -226,23 +223,22 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
     	author_color[author] = color;
     }
 
-	chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
+	chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
 
-	if (chatline.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
+	if (chat.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
 	{
-		chatline.removeChild(chatline.firstChild);
+		chat.removeChild(chat.firstChild);
 	}
 
-	common_chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
+	common_chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
 
-	if (common_chatline.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
+	if (common_chat.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
 	{
-		common_chatline.removeChild(common_chatline.firstChild);
+		common_chat.removeChild(common_chat.firstChild);
 	}
 
 	if (scroll == true)
 	{
-		chatline.style.height = chat.scrollHeight;
 		chat.scrollTop = chat.scrollHeight - chat.clientHeight;
 	}
 }
@@ -269,13 +265,14 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 	}
 })();
 
+(function ()
+{
+	active(document.getElementById('menu__ul__1'));
+})();
 
 
 
 
 // что надо сделать еще:
-// добавить удаление цвета ника у тех, кто долго не пишет (хотя вряд ли кто-то встретит 2000 игроков за сессию)
 // добавить затухание при скроле
-
-// можно переделать списки сообщений так, чтобы они не были внутри div'a, а линию слева сделать отдельным div'ом,
-// для этого надо переделать chatlines в скрипте на chat и удалить chatline.style.height = chat.scrollHeight;
+// убрать анимацию выдвижения у существующих сообщений

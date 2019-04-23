@@ -110,6 +110,7 @@
 .chat__offli{
 	margin: 0;
 	padding: 0;
+	padding-left: 15px;
 	list-style: none;
 }
 
@@ -122,13 +123,20 @@
 	overflow-y: scroll;
 	direction: rtl;
 	word-wrap: break-word;
+	position: relative;
+	z-index: 2;
+
 }
 
 .chat__ul__item{
 	direction: ltr;
 	text-align: left;
+}
+
+.animate{
 	animation: msg 1s;
 }
+
 @keyframes msg
 {
    0% { transform: translate(300px,0px) rotate(0deg) ; opacity: 0;  }
@@ -137,13 +145,12 @@
 
 
 .chatline{
-	border-top: none;
-	border-bottom: none;
-	border-left: 1px solid #9d9e9e;
-	border-right: none;
-	padding-left: 15px;
-	padding-right: 15px;
-	height: inherit;
+	position: absolute;
+	height: 265px;
+	width: 1px;
+	background: #9d9e9e;
+	left: 35px;
+	z-index: 1;
 }
 
 .chat__ul::-webkit-scrollbar              { /* 1 - скроллбар */  width: 5px; }
@@ -175,6 +182,7 @@
 	font-size: 16px;
 	padding: 0 20px 0 20px;
 	font-family: "Futura_Condenced-Normal";
+	margin-left: -3px;
 }
 
 .chat__sendform > input:focus{
