@@ -1,5 +1,6 @@
 const 	chat_size 			= 50, // сколько сообщений помещаем в чат
-		common_chat_size 	= 100; // размер общего чата
+		common_chat_size 	= 100, // размер общего чата
+		I_AM				= 'Exhort'; // никнейм, тянуть с api.
 
 var dom_time 		= document.getElementById('header__time'),
 	head_chatname	= document.getElementById('header__chatname'),
@@ -14,8 +15,9 @@ var chats 			= 		// по этой штуке находим какие меню�
 	'menu__ul__4': 'chat__4',
 }
 
-var scroll 			= true; // по этой штуке определяется, надо ли опускать скрол при появлении нового сообщения
-var author_color 	= {};
+var scroll 			= true, // по этой штуке определяется, надо ли опускать скрол при появлении нового сообщения
+	author_color 	= {};
+
 
 chat_sendform.onsubmit = function(event)
 {
@@ -25,7 +27,7 @@ chat_sendform.onsubmit = function(event)
 	{
 		if (!chat_uls[i].classList.contains('hide'))
 		{
-			addMsg('Me', chat_uls[i].id.replace('chat__',''), event.srcElement[0].value, realTime(), chat_uls[i]);
+			addMsg(I_AM, chat_uls[i].id.replace('chat__',''), event.srcElement[0].value, realTime(), chat_uls[i]); 
 		}
 	}
 
@@ -205,6 +207,8 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 		common_chatline = document.getElementById('chatline__1'),
 		chatline 		= document.getElementById('chatline__' + chat_id),
 		color;
+
+	//if (msg.length == 0) { return; } // если не над пустых сообщений, то раскомент
 
 	if (author_color.hasOwnProperty(author)) // можно переделать их различение по id потом, как api будет
 	{
