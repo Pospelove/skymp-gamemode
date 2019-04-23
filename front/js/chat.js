@@ -166,7 +166,7 @@ function removeMenuItem (elem)
 	if (menu_items.length < 8 && menu_items.length >= 7) // удаление разделителя менюхи
 	{
 		menu_ul.style.flexWrap = 'nowrap';
-		try											// чтобы проверку не делать -- в try/catch, потом можно переделать
+		try		// чтобы проверку не делать -- в try/catch, потом можно переделать
 		{
 			document.getElementById('lb').remove();
 		}
@@ -226,7 +226,7 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 }
 
 
-(function () 													// обработчики скролов на все существующие менюхи
+(function () 	// обработчики скролов на все существующие менюхи
 {
 	var items = document.getElementsByClassName('chat__ul');
 
