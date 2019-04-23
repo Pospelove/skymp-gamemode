@@ -15,6 +15,7 @@ var chats 			= 		// по этой штуке находим какие меню�
 }
 
 var scroll 			= true; // по этой штуке определяется, надо ли опускать скрол при появлении нового сообщения
+var author_color 	= {};
 
 chat_sendform.onsubmit = function(event)
 {
@@ -176,9 +177,9 @@ function removeMenuItem (elem)
 
 function chatShowing (id) // хайдит и шовит нужный чат
 {
-	var chat_uls = document.getElementsByClassName('chat__ul'),
-		chat = document.getElementById('chat__' + id),
-		chatline = document.getElementById('chatline__' + id);
+	var chat_uls 	= document.getElementsByClassName('chat__ul'),
+		chat 		= document.getElementById('chat__' + id),
+		chatline 	= document.getElementById('chatline__' + id);
 
 	try
 	{
@@ -202,16 +203,31 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 {
 	var common_chat 	= document.getElementById('chat__1'),
 		common_chatline = document.getElementById('chatline__1'),
-		chatline 		= document.getElementById('chatline__' + chat_id);
+		chatline 		= document.getElementById('chatline__' + chat_id),
+		color;
 
-	chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + author + ' : ' + msg +'</li>');
+	if (author_color.hasOwnProperty(author)) // можно переделать их различение по id потом, как api будет
+	{
+		color = author_color[author];
+	}
+	else
+	{
+		var red 	= Math.floor(50 + Math.random() * (255 + 1 - 50)),
+    		green 	= Math.floor(50 + Math.random() * (255 + 1 - 50)),
+    		blue 	= Math.floor(50 + Math.random() * (255 + 1 - 50));
+
+    	color = 'rgb(' +red+ ',' +green+ ',' +blue+ ');';
+    	author_color[author] = color;
+    }
+
+	chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
 
 	if (chatline.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
 	{
 		chatline.removeChild(chatline.firstChild);
 	}
 
-	common_chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + author + ' : ' + msg +'</li>');
+	common_chatline.insertAdjacentHTML('beforeend', '<li class="chat__ul__item">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
 
 	if (common_chatline.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
 	{
@@ -251,10 +267,8 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 
 
 
-
-
 // что надо сделать еще:
-// добавить запоминалку цвета ника для каждого игрока, т.е. это двумерный массив или объект
+// добавить удаление цвета ника у тех, кто долго не пишет (хотя вряд ли кто-то встретит 2000 игроков за сессию)
 // добавить затухание при скроле
 
 // можно переделать списки сообщений так, чтобы они не были внутри div'a, а линию слева сделать отдельным div'ом,
