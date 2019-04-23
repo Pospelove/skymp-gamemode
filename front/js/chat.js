@@ -27,7 +27,7 @@ chat_sendform.onsubmit = function(event)
 	{
 		if (!chat_uls[i].classList.contains('hide'))
 		{
-			addMsg(I_AM, chat_uls[i].id.replace('chat__',''), event.srcElement[0].value, realTime(), chat_uls[i]); 
+			addMsg(I_AM, event.srcElement[0].value, realTime(), chat_uls[i]); 
 		}
 	}
 
@@ -202,7 +202,7 @@ function chatShowing (id) // хайдит и шовит нужный чат
 	chat.scrollTop = chat.scrollHeight - chat.clientHeight; // держит скролл внизу
 }
 
-function addMsg (author, chat_id, msg, time, chat) // наверняка есть более эффективное решение, но покачто в рабочем состоянии
+function addMsg (author, msg, time, chat) // наверняка есть более эффективное решение, но покачто в рабочем состоянии
 {
 	var common_chat 	= document.getElementById('chat__1'),
 		color;
@@ -224,6 +224,7 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
     }
 
 	chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
+	setTimeout(delAnimate, 1010, chat.lastChild);
 
 	if (chat.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
 	{
@@ -231,6 +232,7 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 	}
 
 	common_chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
+	setTimeout(delAnimate, 1010, common_chat.lastChild);
 
 	if (common_chat.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
 	{
@@ -242,6 +244,12 @@ function addMsg (author, chat_id, msg, time, chat) // наверняка ест�
 		chat.scrollTop = chat.scrollHeight - chat.clientHeight;
 	}
 }
+
+function delAnimate (elem)
+{
+	elem.classList.remove('animate');
+}
+
 
 
 (function () 	// обработчики скролов на все существующие менюхи
