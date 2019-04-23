@@ -2,7 +2,7 @@ const 	chat_size 			= 50, // сколько сообщений помещаем 
 		common_chat_size 	= 100; // размер общего чата
 
 var dom_time 		= document.getElementById('header__time'),
-	head_chatname	= document.getElementById('header__chatname');
+	head_chatname	= document.getElementById('header__chatname'),
 	menu_ul			= document.getElementById('menu__ul'),
 	chat_sendform 	= document.getElementById('chat__sendform');
 
