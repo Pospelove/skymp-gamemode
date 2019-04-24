@@ -16,9 +16,11 @@
 }
 
 .main{
-	background: url(../svg/chat.svg) no-repeat; /* сделать svg подходящего размера + все это дело сдвинется вниз при 2х линиях менюх, так что надо бы еще 2ю svg, которые будем менять скриптом */
+	/*background: url(../svg/chat.svg) no-repeat;*/ /* сделать svg подходящего размера + все это дело сдвинется вниз при 2х линиях менюх, так что надо бы еще 2ю svg, которые будем менять скриптом */
+	background: url(../svg/testchat.svg) no-repeat;
 	width: 490px;
-	height: 435px;
+	/*height: 435;*/
+	height: 475px;
 	background-size: 100%;
 }
 
