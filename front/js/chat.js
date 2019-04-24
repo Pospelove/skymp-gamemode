@@ -302,9 +302,3 @@ function viewportElems (chat)
 {
 	active(document.getElementById('menu__ul__1'));
 })();
-
-
-
-
-// что надо сделать еще:
-// добавить затухание при скроле
