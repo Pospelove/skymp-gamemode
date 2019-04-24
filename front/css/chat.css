@@ -164,15 +164,7 @@
 .hide{
 	display: none;
 }
-/*
-.invisibility{
-	animation: inv 1s;
-}
 
-@keyframes inv {
-	0% { transform: trana }
-}
-*/
 .chat__sendform{
 	display: none;
 	padding: 0 10px 0 30px;

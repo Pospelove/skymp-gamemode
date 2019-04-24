@@ -16,8 +16,6 @@ var chats 			= 		// по этой штуке находим какие меню�
 }
 
 var scroll 			= true, // по этой штуке определяется, надо ли опускать скрол при появлении нового сообщения
-	lastScrollTop	= 0, // для вычисления направления скрола
-	scrollDir 		= false,
 	author_color 	= {};
 
 
@@ -296,17 +294,6 @@ function viewportElems (chat)
 			{
 				scroll = false;
 			}
-			/*
-			if (items[i].scrollTop > lastScrollTop)
-			{
-				lastScrollTop = items[i].scrollTop;
-				viewportElems(items[i]);
-			}
-			else if (items[i].scrollTop < lastScrollTop)
-			{
-				lastScrollTop = items[i].scrollTop;
-				viewportElems(items[i]);
-			}*/
 		}
 	}
 })();
