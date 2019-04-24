@@ -110,7 +110,7 @@
 .chat__offli{
 	margin: 0;
 	padding: 0;
-	padding-left: 15px;
+	padding-left: 10px;
 	list-style: none;
 }
 
@@ -164,7 +164,15 @@
 .hide{
 	display: none;
 }
+/*
+.invisibility{
+	animation: inv 1s;
+}
 
+@keyframes inv {
+	0% { transform: trana }
+}
+*/
 .chat__sendform{
 	display: none;
 	padding: 0 10px 0 30px;

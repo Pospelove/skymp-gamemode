@@ -16,6 +16,8 @@ var chats 			= 		// по этой штуке находим какие меню�
 }
 
 var scroll 			= true, // по этой штуке определяется, надо ли опускать скрол при появлении нового сообщения
+	lastScrollTop	= 0, // для вычисления направления скрола
+	scrollDir 		= false,
 	author_color 	= {};
 
 
@@ -224,19 +226,19 @@ function addMsg (author, msg, time, chat) // наверняка есть бол�
     }
 
 	chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
-	setTimeout(delAnimate, 1010, chat.lastChild);
+	setTimeout(delAnimate, 1010, chat.lastElementChild);
 
 	if (chat.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
 	{
-		chat.removeChild(chat.firstChild);
+		chat.removeChild(chat.firstElementChild);
 	}
 
 	common_chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg +'</li>');
-	setTimeout(delAnimate, 1010, common_chat.lastChild);
+	setTimeout(delAnimate, 1010, common_chat.lastElementChild);
 
 	if (common_chat.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
 	{
-		common_chat.removeChild(common_chat.firstChild);
+		common_chat.removeChild(common_chat.firstElementChild);
 	}
 
 	if (scroll == true)
@@ -250,6 +252,30 @@ function delAnimate (elem)
 	elem.classList.remove('animate');
 }
 
+function viewportElems (chat)
+{
+	var elems = chat.childNodes;
+
+	for (let i = 1; i < elems.length; i++)
+	{
+		if (elems[i].getBoundingClientRect().top < chat.getBoundingClientRect().top && elems[i].getBoundingClientRect().bottom > chat.getBoundingClientRect().top)
+		{
+			var top = elems[i].getBoundingClientRect().top,
+				bot = elems[i].getBoundingClientRect().bottom,
+				ctop = chat.getBoundingClientRect().top;
+				result = ((bot - ctop) / (bot - top));
+
+			elems[i].style.transform = 'scale(' + result + ')';
+			elems[i].style.opacity = result;
+		}
+		if (elems[i].getBoundingClientRect().top > chat.getBoundingClientRect().top)
+		{
+			elems[i].style.transform = 'scale(1)';
+			elems[i].style.opacity = 1;
+		}
+	}
+}
+
 
 
 (function () 	// обработчики скролов на все существующие менюхи
@@ -261,6 +287,7 @@ function delAnimate (elem)
 
 		items[i].onscroll = function () 
 		{
+			viewportElems(items[i]);
 			if (items[i].scrollTop == items[i].scrollHeight - items[i].clientHeight)
 			{
 				scroll = true;
@@ -269,6 +296,17 @@ function delAnimate (elem)
 			{
 				scroll = false;
 			}
+			/*
+			if (items[i].scrollTop > lastScrollTop)
+			{
+				lastScrollTop = items[i].scrollTop;
+				viewportElems(items[i]);
+			}
+			else if (items[i].scrollTop < lastScrollTop)
+			{
+				lastScrollTop = items[i].scrollTop;
+				viewportElems(items[i]);
+			}*/
 		}
 	}
 })();
@@ -283,4 +321,3 @@ function delAnimate (elem)
 
 // что надо сделать еще:
 // добавить затухание при скроле
-// убрать анимацию выдвижения у существующих сообщений
