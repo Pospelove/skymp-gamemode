@@ -230,10 +230,10 @@ function viewportElems(chat) {
   var elems = chat.childNodes;
 
   for (let i = 1; i < elems.length; i++) {
-    if (elems[i].getBoundingClientRect().top < chat.getBoundingClientRect().top && elems[i].getBoundingClientRect().bottom > chat.getBoundingClientRect().top) {
+    if (elems[i].getBoundingClientRect().top < chat.getBoundingClientRect().top + 10 && elems[i].getBoundingClientRect().bottom > chat.getBoundingClientRect().top) {
       var top = elems[i].getBoundingClientRect().top,
         bot = elems[i].getBoundingClientRect().bottom,
-        ctop = chat.getBoundingClientRect().top,
+        ctop = chat.getBoundingClientRect().top + 10,
         result = 90 - 90 * ((bot - ctop) / (bot - top)),
         opacity = ((bot - ctop) / (bot - top));
 
