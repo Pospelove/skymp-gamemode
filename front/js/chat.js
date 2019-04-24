@@ -216,9 +216,9 @@ function addMsg(author, msg, time, chat) // наверняка есть боле
   {
     common_chat.removeChild(common_chat.firstElementChild);
   }
-
+  
   if (scroll == true) {
-    if (chat != document.getElementById('chat__1')) chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+    if (chat != document.getElementById('chat__1')) {chat.scrollTop = chat.scrollHeight - chat.clientHeight;}
   }
 }
 
@@ -256,7 +256,7 @@ function viewportElems(chat) {
 
       items[i].onscroll = function() {
         viewportElems(items[i]);
-        if (items[i].scrollTop == items[i].scrollHeight - items[i].clientHeight) {
+        if (items[i].scrollTop + 1 >= items[i].scrollHeight - items[i].clientHeight) {
           scroll = true;
         } else {
           scroll = false;
