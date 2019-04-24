@@ -266,8 +266,7 @@ function viewportElems (chat)
 			elems[i].style.transform = 'scale(' + result + ')';
 			elems[i].style.opacity = result;
 		}
-		
-		if (elems[i].getBoundingClientRect().top > chat.getBoundingClientRect().top + 30)
+		if (elems[i].getBoundingClientRect().top > chat.getBoundingClientRect().top)
 		{
 			elems[i].style.transform = 'scale(1)';
 			elems[i].style.opacity = 1;
