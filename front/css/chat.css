@@ -67,7 +67,7 @@
 
 .menu > ul {
 	margin: 0;
-	padding: 0;
+	padding: 0 1px;
 	list-style: none;
 	display: flex;
 	color: #ffffff;
@@ -174,7 +174,7 @@
 
 .chat__sendform > input{
 	height: 30px;
-	background: none;
+	background: rgba(0,0,0,0.6);
 	flex-grow: 1;
 	border-top: 1px solid #9d9e9e;
 	border-bottom: 1px solid #9d9e9e;
@@ -224,4 +224,17 @@
 
 #chat__1{
 	height: 320px;
+}
+
+.lineleft{
+	position: absolute;
+	height: 396.5px;
+	left:9.9px;
+	top:41.4px;
+	width: 5px;
+	background: black;
+	opacity: 0.8;
+}
+.lineright{
+	position: absolute;
 }
