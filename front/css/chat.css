@@ -125,12 +125,12 @@
 	word-wrap: break-word;
 	position: relative;
 	z-index: 2;
-
 }
 
 .chat__ul__item{
 	direction: ltr;
 	text-align: left;
+	margin-right: 5px;
 }
 
 .animate{
