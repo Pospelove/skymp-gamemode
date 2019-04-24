@@ -217,8 +217,11 @@ function addMsg(author, msg, time, chat) // наверняка есть боле
     common_chat.removeChild(common_chat.firstElementChild);
   }
   
-  if (scroll == true) {
-    if (chat != document.getElementById('chat__1')) {chat.scrollTop = chat.scrollHeight - chat.clientHeight;}
+  if (scroll == true && chat == document.getElementById('chat__1')) {
+    chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+  }
+  else if (chat != document.getElementById('chat__1')){
+    chat.scrollTop = chat.scrollHeight - chat.clientHeight;
   }
 }
 
