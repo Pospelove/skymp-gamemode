@@ -260,7 +260,7 @@ function viewportElems (chat)
 		{
 			var top = elems[i].getBoundingClientRect().top,
 				bot = elems[i].getBoundingClientRect().bottom,
-				ctop = chat.getBoundingClientRect().top;
+				ctop = chat.getBoundingClientRect().top,
 				result = 90 - 90 * ((bot - ctop) / (bot - top));
 				opacity = ((bot - ctop) / (bot - top));
 

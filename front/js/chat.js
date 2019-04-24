@@ -233,9 +233,9 @@ function viewportElems(chat) {
     if (elems[i].getBoundingClientRect().top < chat.getBoundingClientRect().top && elems[i].getBoundingClientRect().bottom > chat.getBoundingClientRect().top) {
       var top = elems[i].getBoundingClientRect().top,
         bot = elems[i].getBoundingClientRect().bottom,
-        ctop = chat.getBoundingClientRect().top;
-      result = 90 - 90 * ((bot - ctop) / (bot - top));
-      opacity = ((bot - ctop) / (bot - top));
+        ctop = chat.getBoundingClientRect().top,
+        result = 90 - 90 * ((bot - ctop) / (bot - top)),
+        opacity = ((bot - ctop) / (bot - top));
 
       elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + result + 'deg)';
       elems[i].style.opacity = opacity;
