@@ -226,15 +226,11 @@
 	height: 320px;
 }
 
-.lineleft{
+.magicarea{
 	position: absolute;
-	height: 396.5px;
-	left:9.9px;
-	top:41.4px;
-	width: 5px;
-	background: black;
-	opacity: 0.8;
-}
-.lineright{
-	position: absolute;
+	height: 30px;
+	width: 450px;
+	border: 1px solid red;
+	left: 35px;
+	top: 109px;
 }

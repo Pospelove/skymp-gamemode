@@ -229,22 +229,31 @@ function delAnimate(elem) {
   elem.classList.remove('animate');
 }
 
+
+const mAreaBot = document.getElementById('magicarea').getBoundingClientRect().bottom,
+  mAreaTop = document.getElementById('magicarea').getBoundingClientRect().top;
+
 function viewportElems(chat) {
   var elems = chat.childNodes;
-
   for (let i = 1; i < elems.length; i++) {
-    if (elems[i].getBoundingClientRect().top < chat.getBoundingClientRect().top + 10 && elems[i].getBoundingClientRect().bottom > chat.getBoundingClientRect().top) {
-      var top = elems[i].getBoundingClientRect().top,
-        bot = elems[i].getBoundingClientRect().bottom,
-        ctop = chat.getBoundingClientRect().top + 10,
-        result = 90 - 90 * ((bot - ctop) / (bot - top)),
-        opacity = ((bot - ctop) / (bot - top));
+    if (elems[i].getBoundingClientRect().top < mAreaBot && elems[i].getBoundingClientRect().top > mAreaTop)
+    {
+      var elemTop = elems[i].getBoundingClientRect().top;
+      var elemBot = elems[i].getBoundingClientRect().bot;
+      var rotate = Math.round((Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)) * 90);
 
-      elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + result + 'deg)';
-      elems[i].style.opacity = opacity;
-    } else if (elems[i].getBoundingClientRect().top > chat.getBoundingClientRect().top) {
+      elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + rotate + 'deg)';
+      elems[i].style.opacity = Math.abs(1 - (Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)));
+    }
+    if (elems[i].getBoundingClientRect().top > mAreaBot) 
+    {
       elems[i].style.webkitTransform = 'rotate3d(0, 0, 0, 0deg)';
       elems[i].style.opacity = 1;
+    }
+    if (elems[i].getBoundingClientRect().top <= mAreaTop)
+    {
+      elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + 90 + 'deg)';
+      elems[i].style.opacity = 0;
     }
   }
 }
