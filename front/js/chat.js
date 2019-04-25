@@ -223,7 +223,9 @@ function addMsg(author, msg, time, chat) // наверняка есть боле
   if (chat != document.getElementById('chat__1')){
     chat.scrollTop = chat.scrollHeight - chat.clientHeight;
   }
-  viewportElems(chat);
+  if (chat.scrollHeight > chat.clientHeight){
+    viewportElems(chat);
+  }
 }
 
 function delAnimate(elem) {
