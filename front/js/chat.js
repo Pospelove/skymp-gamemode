@@ -236,7 +236,7 @@ const mAreaBot = document.getElementById('magicarea').getBoundingClientRect().bo
 function viewportElems(chat) {
   var elems = chat.childNodes;
   for (let i = 1; i < elems.length; i++) {
-    if (elems[i].getBoundingClientRect().top < mAreaBot && elems[i].getBoundingClientRect().top > mAreaTop)
+    if (elems[i].getBoundingClientRect().top < mAreaBot && elems[i].getBoundingClientRect().top > mAreaTop && elems[i].getBoundingClientRect().bottom - elems[i].getBoundingClientRect().top < 40)
     {
       var elemTop = elems[i].getBoundingClientRect().top;
       var elemBot = elems[i].getBoundingClientRect().bot;
