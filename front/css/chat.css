@@ -230,6 +230,7 @@
 	position: absolute;
 	height: 30px;
 	width: 450px;
+	border: 1px solid red;
 	left: 35px;
 	top: 109px;
 }

@@ -236,10 +236,10 @@ const mAreaBot = document.getElementById('magicarea').getBoundingClientRect().bo
 function viewportElems(chat) {
   var elems = chat.childNodes;
   for (let i = 1; i < elems.length; i++) {
-    if (elems[i].getBoundingClientRect().top < mAreaBot && elems[i].getBoundingClientRect().top > mAreaTop && elems[i].getBoundingClientRect().bottom - elems[i].getBoundingClientRect().top < 40)
+    if (elems[i].getBoundingClientRect().top < mAreaBot && elems[i].getBoundingClientRect().top > mAreaTop)
     {
       var elemTop = elems[i].getBoundingClientRect().top;
-      var elemBot = elems[i].getBoundingClientRect().bot;
+      var elemBot = elems[i].getBoundingClientRect().bottom;
       var rotate = Math.round((Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)) * 90);
 
       elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + rotate + 'deg)';
