@@ -1,0 +1,146 @@
+<link rel="stylesheet" type="text/css" href="css/party.css">
+
+<svg width="0" height="0" class="b-svg">
+	<defs>
+		<symbol id="arrow" viewBox="0 0 0.17 0.24" xml:space="preserve" version="1.1" stroke="none" fill="currentcolor">
+			<polygon class="fil0" points="0.12,0.08 0.12,0.07 0.08,0.04 -0,0.12 0.08,0.2 0.1,0.19 0.09,0.18 0.08,0.18 0.02,0.12 0.02,0.12 0.08,0.06 0.11,0.09 "/>
+			<polygon class="fil0" points="0.09,0.09 0.1,0.08 0.08,0.07 0.06,0.09 0.11,0.14 0.12,0.13 "/>
+			<polygon class="fil0" points="0.09,0.14 0.1,0.14 0.09,0.13 0.07,0.15 0.16,0.23 0.16,0.24 0.16,0.19 0.15,0.19 0.15,0.2 "/>
+			<polygon class="fil0" points="0.11,0.15 0.12,0.16 0.17,0.12 0.14,0.1 0.13,0.11 0.15,0.12 "/>
+			<polygon class="fil0" points="0.12,0.06 0.12,0.06 0.15,0.04 0.15,0.06 0.16,0.06 0.16,-0 0.16,0 0.11,0.05 "/>
+		</symbol>
+		<symbol id="leader" viewBox="0 0 18.78 14.29" xml:space="preserve" version="1.1" stroke="currentcolor" fill="none">
+			<path d="M2.16 6.94c0.27,1.63 0.79,5.67 1.25,6.86 1.05,0.2 10.88,0.2 11.93,0 0.38,-0.93 1.17,-5.64 1.33,-6.94 2.19,-0.14 2.18,-2.31 0.88,-2.88 -0.69,-0.3 -2.92,-0.1 -1.77,2.47 -1.05,0.38 -2.36,1.86 -3.47,1.95l-2.14 -5.22c0.2,-0.25 0.06,-0.06 0.24,-0.27 1.14,-1.37 0.02,-2.62 -1.08,-2.58 -1.09,0.04 -1.98,1.29 -1.04,2.49l0.23 0.27c0.01,-0.03 0.06,0.06 0.09,0.1l-2.17 5.2c-0.68,-0.09 -1.27,-0.68 -1.75,-1.06 -0.5,-0.39 -0.98,-0.72 -1.47,-1.13 0.03,-0.8 0.26,-1.44 -0.33,-1.97 -0.44,-0.4 -1.29,-0.52 -1.88,-0.14 -0.53,0.34 -0.87,1.13 -0.53,1.94 0.29,0.69 0.89,0.67 1.69,0.92z"/>
+		</symbol>
+		<symbol id="remove" viewBox="0 0 9.31 9.31" xml:space="preserve" version="1.1" stroke="none" fill="currentcolor">
+			<path class="fil0" d="M1.91 2.97c-0.29,-0.3 -0.56,-0.55 -0.85,-0.85 -0.84,-0.85 0.2,-1.89 1.06,-1.06 0.36,0.36 2.35,2.39 2.55,2.53l2.54 -2.55c0.83,-0.81 1.88,0.22 1.03,1.08l-2.11 2.11c-0.13,0.13 -0.29,0.31 -0.42,0.41 0.14,0.2 2.17,2.19 2.53,2.55 0.84,0.85 -0.2,1.89 -1.06,1.06l-2.11 -2.11c-0.13,-0.13 -0.31,-0.29 -0.41,-0.42 -0.2,0.14 -2.19,2.17 -2.55,2.53 -0.85,0.84 -1.89,-0.2 -1.06,-1.06l2.53 -2.52c-0.13,-0.19 -1.41,-1.43 -1.68,-1.7zm-1.91 -1.66l0 0.35c0.07,0.14 0.07,0.34 0.17,0.52 0.2,0.37 0.67,0.78 0.98,1.09l1.37 1.36c-0.09,0.18 -1.71,1.72 -2.07,2.1 -0.41,0.44 -0.34,0.68 -0.45,0.9l0 0.35c0.1,0.23 0.07,0.51 0.43,0.88 0.36,0.36 0.66,0.33 0.88,0.43l0.35 0c0.23,-0.11 0.47,-0.04 0.9,-0.45l1.37 -1.36c0.23,-0.23 0.5,-0.47 0.7,-0.71 0.34,0.17 1.88,2.02 2.49,2.35 0.18,0.1 0.38,0.11 0.52,0.17l0.35 0c0.25,-0.12 0.81,-0.12 1.15,-0.82 0.08,-0.16 0.1,-0.37 0.16,-0.49l0 -0.35c-0.07,-0.14 -0.07,-0.34 -0.17,-0.52 -0.09,-0.16 -0.21,-0.31 -0.3,-0.4 -0.35,-0.37 -1.97,-1.92 -2.05,-2.08l1.39 -1.38c0.23,-0.23 0.46,-0.44 0.68,-0.68 0.41,-0.44 0.34,-0.68 0.45,-0.9l0 -0.35c-0.06,-0.12 -0.08,-0.34 -0.16,-0.49 -0.34,-0.7 -0.9,-0.7 -1.15,-0.82l-0.35 0c-0.14,0.07 -0.34,0.07 -0.52,0.17 -0.37,0.2 -0.78,0.67 -1.09,0.98 -0.21,0.21 -1.24,1.29 -1.4,1.37 -0.2,-0.24 -0.47,-0.48 -0.7,-0.71l-1.37 -1.36c-0.44,-0.41 -0.68,-0.34 -0.9,-0.45l-0.35 0c-0.12,0.06 -0.34,0.08 -0.49,0.16 -0.7,0.34 -0.7,0.9 -0.82,1.15z"/>
+		</symbol>
+	</defs>
+</svg>
+
+<div class="wrap">
+	<ul class="group-menu">
+		<li class="group-item">
+			<div class="group-title">
+				<span>Сделать лидером</span>
+				<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow"></use>
+				</svg>
+			</div>
+			<div class="group-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leader"></use>
+				</svg>
+			</div>
+		</li>
+		<li class="group-item">
+			<div class="group-title">
+				<span>Выкинуть из шайки</span>
+				<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow"></use>
+				</svg>
+			</div>
+			<div class="group-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#remove"></use>
+				</svg>
+			</div>
+		</li>
+	</ul>
+
+	<ul class="group-list">
+		<li class="group-memeber leader">
+			<div class="head-line">
+				<span class="leader-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leader"></use>
+					</svg>
+				</span>
+				<span class="nickname">Pospelov</span>
+			</div>
+			<div class="heal-line"><div class="value"></div></div>
+			<div class="mana-line"><div class="value"></div></div>
+		</li>
+		<li class="group-memeber">
+			<div class="head-line">
+				<span class="leader-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leader"></use>
+					</svg>
+				</span>
+				<span class="nickname">Sondragon</span>
+			</div>
+			<div class="heal-line"><div class="value"></div></div>
+			<div class="mana-line"><div class="value"></div></div>
+		</li>
+		<li class="group-memeber">
+			<div class="head-line">
+				<span class="leader-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#leader"></use>
+					</svg>
+				</span>
+				<span class="nickname">Leos</span>
+			</div>
+			<div class="heal-line"><div class="value"></div></div>
+			<div class="mana-line"><div class="value"></div></div>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	var group = [
+		{heal: 100, mana: 50},
+		{heal: 40, mana: 20},
+		{heal: 10, mana: 80},
+	];
+
+	var position = 0;
+
+	let t1 = setInterval(function(){
+		let itemsHeal = document.querySelectorAll('.heal-line .value');
+		let itemsMana = document.querySelectorAll('.mana-line .value');
+
+		for (var i = 0; i < itemsHeal.length; i++) {
+
+			if (group[i].heal >= 100) {
+				group[i].heal = 0;
+			} else {
+				group[i].heal += 20;
+			}
+
+			if (group[i].mana >= 100) {
+				group[i].mana = 0;
+			} else {
+				group[i].mana += 20;
+			}
+
+			itemsHeal[i].style.width = group[i].heal + '%';
+			itemsMana[i].style.width = group[i].mana + '%';
+		}
+
+		position += 50;
+
+		document.querySelector('body').style['background-position-x'] = position + 'px';
+	}, 2000);
+</script>
+
+<script type="text/javascript">
+	var close = function(e) {
+		e.target.style.display = 'none';
+		e.target.removeEventListener('mouseleave', close);
+	}
+
+	document.addEventListener('click', function(e) {
+		if (e.target.getAttribute('class') == 'nickname') {
+			let menu = document.querySelector('.group-menu');
+			let top = e.target.closest('.group-memeber').getBoundingClientRect().top;
+
+			menu.style.display = 'none';
+			menu.style.top = top;
+			menu.style.display = 'block';
+
+			menu.addEventListener('mouseleave', close, false);
+		}
+	}, false);
+</script>
