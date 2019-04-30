@@ -14,26 +14,23 @@
 body, html {
 	margin: 0;
 	padding: 0;
-}
-
-body {
-	background: url(../images/party/background.jpg);
-	transition: background linear 2s;
+	overflow: hidden;
 }
 
 .wrap {
 	position: relative;
-	width: 600px;
+	width: 560px;
 	margin: 0 auto;
 }
 
 
 /* Пати */
 .group-list {
-	width: 300px;
-	list-style-type: none;
+	width: 280px;
+	list-style: none;
 	position: absolute;
 	top: 0; right: 0;
+	padding: 0;
 	margin: 0;
 }
 
@@ -125,8 +122,11 @@ body {
 /* Выпадающие меню */
 .group-menu {
 	display: none;
-	width: 300px;
-	list-style-type: none;
+	width: 280px;
+	list-style: none;
+	padding: 0;
+	padding-right: 20px;
+	margin: 0;
 	position: absolute;
 	top: 0; left: 0;
 	animation: fadein 0.5s;
