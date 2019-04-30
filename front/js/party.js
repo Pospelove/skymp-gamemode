@@ -57,12 +57,10 @@ var group = (function(menu){
 			object.querySelector('.mana-line .value').style.width = item['mana'] + '%';
 		}
 
-		if (checkСhanges('isLeader', item, old)) {
-			if (item['isLeader'] != undefined && item['isLeader']) {
-				object.setAttribute('class', 'group-memeber leader');
-			} else {
-				object.setAttribute('class', 'group-memeber');
-			}
+		if (item['isLeader'] != undefined && item['isLeader']) {
+			object.setAttribute('class', 'group-memeber leader');
+		} else {
+			object.setAttribute('class', 'group-memeber');
 		}
 	}
 
