@@ -133,7 +133,14 @@
 	direction: ltr;
 	text-align: left;
 	margin-right: 10px;
+	word-wrap: break-word;
 }
+
+.chat__ul__item div {
+	word-wrap: break-word;
+	position: relative;
+}
+
 
 .animate{
 	animation: msg 1s;

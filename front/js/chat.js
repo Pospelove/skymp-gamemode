@@ -201,7 +201,7 @@ function addMsg(author, msg, time, chat) // наверняка есть боле
     author_color[author] = color;
   }
 
-  chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg + '</li>');
+  chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '<div>[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + '<span>' + msg + '<span></div>' + '</li>');
   setTimeout(delAnimate, 1010, chat.lastElementChild);
 
   if (chat.childNodes.length >= chat_size) // удаляем самое верхнее сообщение
@@ -209,7 +209,7 @@ function addMsg(author, msg, time, chat) // наверняка есть боле
     chat.removeChild(chat.firstElementChild);
   }
 
-  common_chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + msg + '</li>');
+  common_chat.insertAdjacentHTML('beforeend', '<li class="chat__ul__item animate">' + '<div>[' + time + '] ' + '<span style="color:' + color + '">' + author + '</span>' + ' : ' + '<span>' + msg + '<span></div>' + '</li>');
   setTimeout(delAnimate, 1010, common_chat.lastElementChild);
 
   if (common_chat.childNodes.length >= common_chat_size) // удаляем самое верхнее сообщение
@@ -245,18 +245,18 @@ function viewportElems(chat) {
       var elemBot = elems[i].getBoundingClientRect().bottom;
       var rotate = Math.round((Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)) * 90);
 
-      elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + rotate + 'deg)';
-      elems[i].style.opacity = Math.abs(1 - (Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)));
+      elems[i].lastElementChild.style.webkitTransform = 'rotate3d(1, 0, 0, ' + rotate + 'deg)';
+      elems[i].lastElementChild.style.opacity = Math.abs(1 - (Math.abs(elemTop - mAreaBot) / Math.abs(mAreaTop - mAreaBot)));
     }
     if (elems[i].getBoundingClientRect().top > mAreaBot) 
     {
-      elems[i].style.webkitTransform = 'rotate3d(0, 0, 0, 0deg)';
-      elems[i].style.opacity = 1;
+      elems[i].lastElementChild.style.webkitTransform = 'rotate3d(0, 0, 0, 0deg)';
+      elems[i].lastElementChild.style.opacity = 1;
     }
     if (elems[i].getBoundingClientRect().top <= mAreaTop)
     {
-      elems[i].style.webkitTransform = 'rotate3d(1, 0, 0, ' + 90 + 'deg)';
-      elems[i].style.opacity = 0;
+      elems[i].lastElementChild.style.webkitTransform = 'rotate3d(1, 0, 0, ' + 90 + 'deg)';
+      elems[i].lastElementChild.style.opacity = 0;
     }
   }
 }
